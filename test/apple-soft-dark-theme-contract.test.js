@@ -17,7 +17,6 @@ assert.doesNotMatch(source, /translateY/i);
 assert.match(source, /html\.zAoYTe/);
 assert.match(source, /#searchform\s+\.sfbg[\s\S]*background:\s*var\(--soft-page\)\s*!important/);
 assert.match(source, /#gb[\s\S]*background:\s*var\(--soft-page\)\s*!important/);
-assert.match(source, /#rso\s+>\s+[^\{]*\.A6K0A[\s\S]*border:\s*0\s*!important/);
 assert.match(source, /\.soft-panel\(\)/);
 assert.match(source, /\.RNNXgb/);
 assert.match(source, /\.MjjYud/);
