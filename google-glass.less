@@ -1,0 +1,45 @@
+@glass-blur: 18px;
+@radius: 16px;
+@gap: 20px;
+@breakpoint: 900px;
+@wide-breakpoint: 1200px;
+
+:root {
+  --page: #eef3ff;
+  --orb-a: rgba(91, 124, 255, 0.42);
+  --orb-b: rgba(181, 105, 255, 0.34);
+  --glass: rgba(255, 255, 255, 0.68);
+  --glass-solid: rgba(247, 249, 255, 0.96);
+  --line: rgba(69, 84, 120, 0.18);
+  --text: #202124;
+  --muted: #5f6368;
+  --link: #1558d6;
+  --focus: #2f6fed;
+  --shadow: 0 18px 50px rgba(48, 63, 105, 0.16);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page: #09101f;
+    --orb-a: rgba(42, 112, 255, 0.38);
+    --orb-b: rgba(156, 78, 255, 0.32);
+    --glass: rgba(18, 27, 48, 0.7);
+    --glass-solid: rgba(14, 22, 39, 0.96);
+    --line: rgba(196, 211, 255, 0.16);
+    --text: #e8eaed;
+    --muted: #bdc1c6;
+    --link: #8ab4f8;
+    --focus: #a8c7fa;
+    --shadow: 0 20px 56px rgba(0, 0, 0, 0.36);
+  }
+}
+
+html,
+body {
+  color: var(--text) !important;
+  background-color: var(--page) !important;
+  background-image:
+    radial-gradient(circle at 12% 8%, var(--orb-a), transparent 34rem),
+    radial-gradient(circle at 88% 22%, var(--orb-b), transparent 38rem) !important;
+  background-attachment: fixed !important;
+}
