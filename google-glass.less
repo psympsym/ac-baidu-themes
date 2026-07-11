@@ -43,3 +43,78 @@ body {
     radial-gradient(circle at 88% 22%, var(--orb-b), transparent 38rem) !important;
   background-attachment: fixed !important;
 }
+
+.glass-panel() {
+  color: var(--text) !important;
+  background: var(--glass) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: @radius !important;
+  box-shadow: var(--shadow) !important;
+  backdrop-filter: blur(@glass-blur) saturate(135%);
+  -webkit-backdrop-filter: blur(@glass-blur) saturate(135%);
+}
+
+#searchform {
+  position: sticky !important;
+  top: 0;
+  z-index: 10;
+  background: var(--glass-solid) !important;
+  border-bottom: 1px solid var(--line) !important;
+  backdrop-filter: blur(@glass-blur);
+  -webkit-backdrop-filter: blur(@glass-blur);
+}
+
+.RNNXgb,
+.g,
+.MjjYud,
+.kp-wholepage,
+.ULSxyf,
+#botstuff {
+  .glass-panel();
+}
+
+.RNNXgb {
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.RNNXgb:focus-within {
+  border-color: var(--focus) !important;
+  box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.24) !important;
+}
+
+.g,
+.MjjYud,
+.ULSxyf,
+#botstuff {
+  padding: 18px 20px !important;
+  margin-bottom: @gap !important;
+}
+
+body,
+.g,
+.MjjYud,
+.kp-wholepage,
+.ULSxyf {
+  color: var(--text) !important;
+}
+
+a,
+a:visited {
+  color: var(--link);
+}
+
+:where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 3px solid var(--focus) !important;
+  outline-offset: 3px !important;
+}
+
+@supports not ((backdrop-filter: blur(1px))) {
+  .RNNXgb,
+  .g,
+  .MjjYud,
+  .kp-wholepage,
+  .ULSxyf,
+  #botstuff {
+    background: var(--glass-solid) !important;
+  }
+}
