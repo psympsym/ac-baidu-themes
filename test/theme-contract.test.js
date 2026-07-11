@@ -20,4 +20,8 @@ assert.match(source, /grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)
 assert.match(source, /@media \(min-width:\s*@wide-breakpoint\)/);
 assert.match(source, /@media \(max-width:\s*\(@breakpoint - 1px\)\)/);
 assert.match(source, /overflow-x:\s*clip/);
+assert.match(source, /prefers-reduced-motion:\s*reduce/);
+assert.match(source, /transition-duration:\s*0\.01ms/);
+assert.doesNotMatch(source, /@import/i);
+assert.doesNotMatch(source, /position:\s*fixed/);
 console.log('theme contract ok');
