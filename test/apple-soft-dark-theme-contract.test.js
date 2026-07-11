@@ -4,12 +4,15 @@ const { execFileSync } = require('node:child_process');
 
 const source = fs.readFileSync('apple-soft-dark.less', 'utf8');
 
-assert.match(source, /@plastic-blur:\s*12px/);
 assert.match(source, /@panel-radius:\s*22px/);
 assert.match(source, /@breakpoint:\s*900px/);
-assert.match(source, /--soft-page:\s*#080b13/);
-assert.match(source, /--soft-panel:\s*rgba\(27,\s*34,\s*48,\s*0\.92\)/);
+assert.match(source, /--soft-page:\s*#1f2024/);
+assert.match(source, /--soft-panel:\s*#27282c/);
+assert.match(source, /--soft-muted:\s*#969baa/);
 assert.match(source, /--soft-blue:\s*#0a84ff/);
+assert.doesNotMatch(source, /backdrop-filter/i);
+assert.doesNotMatch(source, /radial-gradient|linear-gradient/i);
+assert.doesNotMatch(source, /translateY/i);
 assert.match(source, /\.soft-panel\(\)/);
 assert.match(source, /\.RNNXgb/);
 assert.match(source, /\.MjjYud/);
@@ -19,7 +22,6 @@ assert.match(source, /#rso:not\(:has\(> div:not\(\.MjjYud\):not\(\.g\):not\(\.UL
 assert.match(source, /grid-template-columns:\s*repeat\(2,\s*minmax\(0,\s*1fr\)\)/);
 assert.match(source, /@media \(max-width:\s*\(@breakpoint - 1px\)\)/);
 assert.match(source, /@media \(max-width:[\s\S]*#rso\s*\{[\s\S]*display:\s*block/);
-assert.match(source, /@supports not \(\(backdrop-filter:\s*blur\(1px\)\)\)/);
 assert.match(source, /prefers-reduced-motion:\s*reduce/);
 assert.doesNotMatch(source, /url\s*\(/i);
 assert.doesNotMatch(source, /@import/i);
@@ -35,7 +37,7 @@ try {
     stdio: ['ignore', 'pipe', 'pipe'],
   });
   assert.match(css, /background:\s*var\(--soft-panel\)/);
-  assert.match(css, /backdrop-filter:\s*blur\(12px\)/);
+  assert.doesNotMatch(css, /backdrop-filter|radial-gradient|linear-gradient/);
   console.log('less compile ok');
 } catch (error) {
   if (error.code !== 'ENOENT') throw error;
