@@ -6,10 +6,10 @@ const source = fs.readFileSync('apple-soft-dark.less', 'utf8');
 
 assert.match(source, /@panel-radius:\s*22px/);
 assert.match(source, /@breakpoint:\s*900px/);
-assert.match(source, /--soft-page:\s*#1e2129/);
-assert.match(source, /--soft-panel:\s*#292c34/);
-assert.match(source, /--soft-text:\s*#d2d2d2/);
-assert.match(source, /--soft-muted:\s*#d2d2d2/);
+assert.match(source, /--soft-page:\s*#1c1c1e/);
+assert.match(source, /--soft-panel:\s*#2c2c2e/);
+assert.match(source, /--soft-text:\s*#ffffff/);
+assert.match(source, /--soft-muted:\s*rgba\(235,\s*235,\s*245,\s*0\.6\)/);
 assert.match(source, /--soft-blue:\s*#0a84ff/);
 assert.doesNotMatch(source, /backdrop-filter/i);
 assert.doesNotMatch(source, /radial-gradient|linear-gradient/i);
