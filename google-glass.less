@@ -118,3 +118,52 @@ a:visited {
     background: var(--glass-solid) !important;
   }
 }
+
+body {
+  overflow-x: clip;
+}
+
+#center_col,
+#rcnt,
+#rso {
+  max-width: none !important;
+}
+
+@media (min-width: @breakpoint) {
+  #center_col {
+    width: min(100%, 1500px) !important;
+    margin-inline: auto !important;
+  }
+
+  #rso {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: @gap;
+    align-items: start;
+  }
+
+  #rso > * {
+    min-width: 0;
+    margin: 0 !important;
+  }
+}
+
+@media (min-width: @wide-breakpoint) {
+  #rso {
+    gap: 24px;
+  }
+}
+
+@media (max-width: (@breakpoint - 1px)) {
+  #center_col,
+  #rcnt,
+  #rso {
+    width: auto !important;
+    min-width: 0 !important;
+    margin-inline: 0 !important;
+  }
+
+  #rso {
+    display: block !important;
+  }
+}
