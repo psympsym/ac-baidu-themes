@@ -1,0 +1,299 @@
+@desktop: 900px;
+@mobile: 599px;
+
+:root {
+  color-scheme: light;
+  --spine-page: #dfe2d7;
+  --spine-paper: #f8f3e8;
+  --spine-ink: #29251f;
+  --spine-muted: #625e54;
+  --spine-rule: #687363;
+  --spine-accent: #9c392d;
+  --spine-visited: #654a61;
+  --spine-line: #c9c4b7;
+}
+
+html.zAoYTe,
+html,
+body#gsr,
+body,
+body #main,
+body #cnt {
+  color: var(--spine-ink) !important;
+  background: var(--spine-page) !important;
+}
+
+body {
+  color-scheme: light;
+  font-family: Songti SC, STSong, Noto Serif CJK SC, Georgia, serif !important;
+}
+
+#searchform,
+#searchform .sfbg,
+#searchform .sfbg > div,
+#gb {
+  background: var(--spine-page) !important;
+  box-shadow: none !important;
+}
+
+#searchform {
+  border-bottom: 1px solid rgba(41, 37, 31, .18) !important;
+}
+
+html body .RNNXgb {
+  color: var(--spine-ink) !important;
+  background: var(--spine-paper) !important;
+  border: 1px solid var(--spine-rule) !important;
+  border-bottom: 3px double var(--spine-rule) !important;
+  border-radius: 0 !important;
+  box-shadow:
+    inset 0 -3px 0 rgba(104, 115, 99, .12),
+    3px 3px 0 rgba(104, 115, 99, .08) !important;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+html body .RNNXgb:focus-within {
+  border-color: var(--spine-accent) !important;
+  box-shadow:
+    inset 0 -3px 0 rgba(156, 57, 45, .12),
+    3px 3px 0 rgba(156, 57, 45, .08) !important;
+}
+
+#searchform input,
+#searchform textarea,
+#searchform [contenteditable="true"] {
+  color: var(--spine-ink) !important;
+  caret-color: var(--spine-accent) !important;
+}
+
+@media (min-width: @desktop) {
+  #rso {
+    display: block !important;
+    position: relative;
+    box-sizing: border-box;
+    padding: 8px 20px 8px 44px !important;
+    background: var(--spine-paper) !important;
+    border-top: 1px solid rgba(104, 115, 99, .32);
+    border-bottom: 1px solid rgba(104, 115, 99, .32);
+    box-shadow: 7px 8px 0 rgba(104, 115, 99, .08);
+  }
+}
+
+#rso {
+  position: relative;
+  box-sizing: border-box;
+  background: var(--spine-paper) !important;
+}
+
+#rso::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 23px;
+  width: 1px;
+  content: "";
+  pointer-events: none;
+  background: var(--spine-rule);
+}
+
+html body #rso > .MjjYud,
+html body #rso > div > .MjjYud {
+  position: relative;
+  box-sizing: border-box;
+  margin: 0 !important;
+  padding: 22px 8px 24px 18px !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--spine-line) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html body #rso > .MjjYud::before,
+html body #rso > div > .MjjYud::before {
+  position: absolute;
+  top: 31px;
+  left: -21px;
+  width: 11px;
+  height: 2px;
+  content: "";
+  pointer-events: none;
+  background: var(--spine-rule);
+  transition: width 150ms ease, background-color 150ms ease;
+}
+
+html body #rso > .MjjYud::after,
+html body #rso > div > .MjjYud::after {
+  position: absolute;
+  top: 27px;
+  left: -25px;
+  width: 7px;
+  height: 7px;
+  box-sizing: border-box;
+  content: "";
+  pointer-events: none;
+  background: var(--spine-paper);
+  border: 1px solid var(--spine-rule);
+  border-radius: 50%;
+  transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+html body #rso > .MjjYud:hover::before,
+html body #rso > div > .MjjYud:hover::before,
+html body #rso > .MjjYud:focus-within::before,
+html body #rso > div > .MjjYud:focus-within::before {
+  width: 19px;
+  background: var(--spine-accent);
+}
+
+html body #rso > .MjjYud:hover::after,
+html body #rso > div > .MjjYud:hover::after,
+html body #rso > .MjjYud:focus-within::after,
+html body #rso > div > .MjjYud:focus-within::after {
+  background: var(--spine-accent);
+  border-color: var(--spine-accent);
+}
+
+html body #rso .MjjYud > .A6K0A,
+html body #rso .MjjYud > .A6K0A > .wHYlTd {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+}
+
+html body .ULSxyf,
+html body .kp-wholepage {
+  color: var(--spine-ink) !important;
+  background: var(--spine-paper) !important;
+  border: 1px solid var(--spine-line) !important;
+  border-left: 3px solid rgba(104, 115, 99, .45) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+#rso :where(h3, a > h3),
+#rhs :where(h3, a > h3) {
+  color: var(--spine-ink) !important;
+  font-family: Songti SC, STSong, Noto Serif CJK SC, Georgia, serif !important;
+  font-size: 21px !important;
+  font-weight: 650 !important;
+  letter-spacing: 0;
+  line-height: 1.38 !important;
+  text-wrap: pretty;
+}
+
+#rso a:hover > h3,
+#rhs a:hover > h3 {
+  color: var(--spine-ink) !important;
+  text-decoration: underline;
+  text-decoration-color: var(--spine-accent);
+  text-underline-offset: 4px;
+}
+
+#rso a:visited > h3,
+#rhs a:visited > h3 {
+  color: var(--spine-visited) !important;
+}
+
+#rso :where(.VuuXrf, cite, .qLRx3b),
+#rhs :where(.VuuXrf, cite, .qLRx3b) {
+  color: var(--spine-rule) !important;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+#rso :where(.VwiC3b, .MUxGbd, .aCOpRe),
+#rhs :where(.VwiC3b, .MUxGbd, .aCOpRe) {
+  color: var(--spine-muted) !important;
+  font-size: 14px !important;
+  line-height: 1.72 !important;
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+}
+
+html body .sp-separator {
+  color: var(--spine-muted) !important;
+  background: transparent !important;
+  border-color: var(--spine-line) !important;
+}
+
+html body .sp-separator .sp-sp-nextlink,
+html body .sp-separator .sp-sp-nextlink * {
+  color: var(--spine-accent) !important;
+}
+
+[role="menu"],
+[role="dialog"],
+[role="listbox"] {
+  color: var(--spine-ink) !important;
+  background: var(--spine-paper) !important;
+  border: 1px solid var(--spine-line) !important;
+  border-radius: 3px !important;
+  box-shadow: 0 8px 24px rgba(41, 37, 31, .14) !important;
+}
+
+#rso :where(a, button, input, textarea, select, [tabindex]):focus-visible,
+#rhs :where(a, button, input, textarea, select, [tabindex]):focus-visible,
+#searchform :where(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 3px solid var(--spine-accent) !important;
+  outline-offset: 3px !important;
+}
+
+@media (max-width: 899px) {
+  #rcnt,
+  #center_col,
+  #rso {
+    box-sizing: border-box;
+    width: 100% !important;
+    min-width: 0 !important;
+    margin-inline: 0 !important;
+  }
+}
+
+@media (max-width: @mobile) {
+  #rso {
+    display: revert !important;
+    grid-template-columns: none !important;
+    padding: 4px 8px 4px 29px !important;
+  }
+
+  #rso::before {
+    left: 15px;
+  }
+
+  html body #rso > .MjjYud,
+  html body #rso > div > .MjjYud {
+    padding: 18px 2px 20px 10px !important;
+  }
+
+  html body #rso > .MjjYud::before,
+  html body #rso > div > .MjjYud::before {
+    left: -14px;
+    width: 8px;
+  }
+
+  html body #rso > .MjjYud::after,
+  html body #rso > div > .MjjYud::after {
+    top: 24px;
+    left: -18px;
+  }
+
+  #rso :where(h3, a > h3),
+  #rhs :where(h3, a > h3) {
+    font-size: 19px !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .RNNXgb,
+  #rso > .MjjYud::before,
+  #rso > div > .MjjYud::before,
+  #rso > .MjjYud::after,
+  #rso > div > .MjjYud::after {
+    transition-duration: .01ms !important;
+  }
+}
