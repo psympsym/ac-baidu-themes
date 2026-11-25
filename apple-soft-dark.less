@@ -89,24 +89,24 @@ html body .RNNXgb:focus-within {
   opacity: 0.9;
 }
 
-html body #rso > .MjjYud,
-html body #rso > .g,
-html body #rso > div > .MjjYud,
-html body #rso > div > .g,
+html body #rso > .MjjYud:has(h3, [role="heading"], img, video, iframe, table, canvas),
+html body #rso > .g:has(h3, [role="heading"], img, video, iframe, table, canvas),
+html body #rso > div:not(.MjjYud, .g) > .MjjYud:has(h3, [role="heading"], img, video, iframe, table, canvas),
+html body #rso > div:not(.MjjYud, .g) > .g:has(h3, [role="heading"], img, video, iframe, table, canvas),
 html body .ULSxyf,
 html body .kp-wholepage {
   .soft-panel();
   box-sizing: border-box;
   min-width: 0;
   margin-bottom: @gap !important;
-  padding: 19px 21px !important;
+  padding: 30px !important;
   transition: background-color 160ms ease, border-color 160ms ease;
 }
 
-html body #rso > .MjjYud:hover,
-html body #rso > .g:hover,
-html body #rso > div > .MjjYud:hover,
-html body #rso > div > .g:hover,
+html body #rso > .MjjYud:has(h3, [role="heading"], img, video, iframe, table, canvas):hover,
+html body #rso > .g:has(h3, [role="heading"], img, video, iframe, table, canvas):hover,
+html body #rso > div:not(.MjjYud, .g) > .MjjYud:has(h3, [role="heading"], img, video, iframe, table, canvas):hover,
+html body #rso > div:not(.MjjYud, .g) > .g:has(h3, [role="heading"], img, video, iframe, table, canvas):hover,
 html body .ULSxyf:hover,
 html body .kp-wholepage:hover {
   background: var(--soft-panel-hover) !important;
@@ -253,4 +253,229 @@ button,
   [role="tab"] {
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Desktop: let the result column use the available content width. */
+@media (min-width: @breakpoint) {
+  html body #rcnt {
+    box-sizing: border-box !important;
+    width: calc(100% - 48px) !important;
+    max-width: 1600px !important;
+    min-width: 0 !important;
+    margin-inline: auto !important;
+  }
+
+  html body #center_col {
+    box-sizing: border-box !important;
+    /* #rcnt is a grid: span its tracks instead of filling only track 1. */
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin-inline: 0 !important;
+  }
+
+  html body #rso {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+  }
+}
+
+/* Google's AI fade uses negative insets intended for its original wide layout. */
+html body .ULSxyf {
+  --soft-ai-surface: var(--soft-panel);
+}
+
+html body .ULSxyf:hover {
+  --soft-ai-surface: var(--soft-panel-hover);
+}
+
+html body :is(.ULSxyf, .SePcAf) .iIXkZe.LrrQLb {
+  left: 0 !important;
+  right: 0 !important;
+  width: auto !important;
+  max-width: 100% !important;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0px,
+    var(--soft-ai-surface, var(--soft-page)) 80px
+  ) !important;
+}
+
+html body :is(.ULSxyf, .SePcAf) .zNsLfb {
+  background-color: var(--soft-ai-surface, var(--soft-page)) !important;
+}
+
+/* Match the expanded AI input fade to the theme panel. */
+html body :is(.ULSxyf, .SePcAf) .Zze5V {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 0px,
+    var(--soft-ai-surface, var(--soft-page)) 30px,
+    var(--soft-ai-surface, var(--soft-page)) 100%
+  ) !important;
+}
+
+html body :is(#rso, #rcnt) :is(.ULSxyf, .SePcAf) .AgWCw {
+  border-radius: 20px !important;
+  background-color: var(--soft-page) !important;
+  box-shadow: none !important;
+}
+
+/* Paint above the input fade without intercepting controls. */
+html body :is(#rso, #rcnt) :is(.ULSxyf, .SePcAf) .AgWCw::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px var(--soft-line-hover);
+}
+
+html body :is(#rso, #rcnt) :is(.ULSxyf, .SePcAf) .AgWCw:focus-within::after {
+  box-shadow: inset 0 0 0 2px var(--soft-blue);
+}
+
+/* Match the ID specificity of the generic result-area focus rule. */
+html body :is(#rso, #rcnt) :is(.ULSxyf, .SePcAf) .AgWCw textarea.ITIRGe:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Reset Google's negative inline offsets when the fade uses 100% width. */
+html body :is(#rso, #rcnt) :is(.ULSxyf, .SePcAf) .AgWCw .Zze5V {
+  inset-inline: 0 !important;
+}
+
+/* AC-Baidu page divider: readable controls without replacing their DOM. */
+html body .sp-separator.AC {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap;
+  gap: 8px !important;
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+  padding: 10px 16px !important;
+  margin: 18px 0 26px !important;
+  border: 1px solid var(--soft-line) !important;
+  border-radius: 16px !important;
+  background: var(--soft-panel) !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+html body .sp-separator.AC .sp-sp-nextlink {
+  display: inline-flex !important;
+  align-items: center;
+  margin: 0 12px 0 0 !important;
+  color: var(--soft-muted) !important;
+  text-shadow: none !important;
+  cursor: default;
+}
+
+html body .sp-separator.AC .sp-sp-nextlink b {
+  color: inherit !important;
+  font-weight: 500 !important;
+  white-space: nowrap;
+}
+
+html body .sp-separator.AC .sp-sp-nextlink span {
+  display: inline !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 4px !important;
+  color: var(--soft-text) !important;
+  font-variant-numeric: tabular-nums;
+}
+
+html body .sp-separator.AC > span[id] {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 34px;
+  width: 34px !important;
+  height: 34px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 1px solid var(--soft-line) !important;
+  border-radius: 10px !important;
+  color: var(--soft-text) !important;
+  background: var(--soft-page) !important;
+  cursor: pointer;
+}
+
+html body .sp-separator.AC > span[id]::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: currentColor;
+  mask: var(--soft-pager-icon) center / contain no-repeat;
+  pointer-events: none;
+}
+
+html body .sp-separator.AC > .ac_sp_top {
+  --soft-pager-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 4h14M6 13l6-6 6 6M12 7v13' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+html body .sp-separator.AC > .ac_sp_pre,
+html body .sp-separator.AC > .ac_sp_pre_gray {
+  --soft-pager-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12l6-6 6 6M12 6v14' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+html body .sp-separator.AC > .ac_sp_next,
+html body .sp-separator.AC > .ac_sp_next_gray {
+  --soft-pager-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12l6 6 6-6M12 4v14' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+html body .sp-separator.AC > .ac_sp_bottom {
+  --soft-pager-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 20h14M6 11l6 6 6-6M12 4v13' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+html body .sp-separator.AC > .ac_sp_pre_gray,
+html body .sp-separator.AC > .ac_sp_next_gray {
+  color: var(--soft-muted) !important;
+}
+
+html body .sp-separator.AC > span[id]:hover {
+  color: var(--soft-blue-hover) !important;
+  background: var(--soft-control-hover) !important;
+  border-color: var(--soft-blue) !important;
+}
+
+/* The grid already supplies equal row and column gaps. */
+@media (min-width: @breakpoint) {
+  html body #rso[two-father] > :is(.MjjYud, .g):has(h3, [role="heading"], img, video, iframe, table, canvas),
+  html body #rso div[two-father] > :is(.MjjYud, .g):has(h3, [role="heading"], img, video, iframe, table, canvas),
+  html body #rso[two-father] > :is(.ULSxyf, .kp-wholepage),
+  html body #rso div[two-father] > :is(.ULSxyf, .kp-wholepage) {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* The theme's result panel already provides padding around normal web results. */
+html body #rso .MjjYud > .A6K0A:has(> .wHYlTd.vt6azd) {
+  padding: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Result cards already provide their own outer spacing and padding. */
+html body #rso .MjjYud > .A6K0A > .wHYlTd.vt6azd {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Display all of the snippet text Google supplied instead of clamping two lines. */
+html body #rso .MjjYud > .A6K0A > .wHYlTd.vt6azd .VwiC3b.Hdw6tb {
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+  max-height: none !important;
+  overflow: visible !important;
 }
